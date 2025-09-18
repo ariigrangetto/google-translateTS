@@ -59,10 +59,6 @@ function App() {
     debounceTranslate(input, newSource, targetLanguage);
   };
 
-  const handleSwapLanguage = (): void => {
-    swapLanguages();
-  };
-
   async function handleCopyButton(): Promise<void> {
     try {
       await navigator.clipboard.writeText(output);
@@ -118,7 +114,7 @@ function App() {
           <button
             className='swap-languages icon-button'
             id='swapLanguages'
-            onClick={handleSwapLanguage}
+            onClick={swapLanguages}
           >
             <span className='material-symbols-outlined'>
               <ArrowLeftRight />
