@@ -41,5 +41,6 @@ I developed an application inspired by Google Translate, using the AI API for tr
 ✋🏻 Advertencia!! AI API tiene limitaciones por espacios geograficos y navegadores. <br>
 ✋🏻 Warning!! The AI API has limitations depending on geographic location and browser.
 
-## 🌆 Vista previa /Preview
+## 🌆 Vista previa / Preview
+<img width="1000" height="1000" alt="google-translate-icon" src="https://github.com/user-attachments/assets/986cbe22-f68b-4b41-951e-ca3a0ad805a0" />
 
