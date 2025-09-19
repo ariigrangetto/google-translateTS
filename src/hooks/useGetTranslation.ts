@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import useDetectLanguage from "./useDetectLanguage";
-import useUpdateStateContext from "./useUpdateStateContext";
+import useDetectLanguage from "./useDetectLanguage.ts";
+import useUpdateStateContext from "./useUpdateStateContext.ts";
 
 export default function useGetTranslation() {
   const { setOutput } = useUpdateStateContext();

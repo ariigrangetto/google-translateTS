@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { UpdateStateContext } from "../context/updateStateContext";
+import { UpdateStateContext } from "../context/updateStateContext.ts";
 
 export default function useUpdateStateContext() {
   const ctx = useContext(UpdateStateContext);

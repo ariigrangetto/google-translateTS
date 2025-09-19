@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { DEFAULT_SOURCE_LANGUAGE, SUPPORTED_LANGUAGES } from "../constants";
+import { DEFAULT_SOURCE_LANGUAGE, SUPPORTED_LANGUAGES } from "../constants.ts";
 
 export default function useDetectLanguage() {
   const currentDetector = useRef<string | null>(null);

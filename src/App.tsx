@@ -73,27 +73,30 @@ function App() {
 
   return (
     <>
-      <div className='container'>
+      <div className='container '>
         <header className='header'>
-          <div className='header-content'>
-            <div className='logo'>
-              <span className='google-g'>G</span>
-              <span className='google-o1'>o</span>
-              <span className='google-o2'>o</span>
-              <span className='google-g'>g</span>
-              <span className='google-l'>l</span>
-              <span className='google-e'>e</span>
-              <span className='traductor'>Traductor</span>
+          <div className='header-content flex items-center justify-between'>
+            <div className='logo text-[22px] font-normal flex items-center'>
+              <span className='google-g text-[#4285f4]'>G</span>
+              <span className='google-o1 text-[#ea4335]'>o</span>
+              <span className='google-o2 text-[#fbbc05]'>o</span>
+              <span className='google-g text-[#4285f4]'>g</span>
+              <span className='google-l text-[#34a853]'>l</span>
+              <span className='google-e text-[#ea4335]'>e</span>
+              <span className='traductor text-[#5f6368] ml-[4px]'>
+                Traductor
+              </span>
             </div>
           </div>
         </header>
 
-        <section className='language-selection'>
-          <div className='source-language'>
+        <section className='language-selection  flex items-center justify-center p-[24px] gap-[100px]'>
+          <div className='source-language flex-1 max-w-[200px]'>
             <select
               id='sourceLanguage'
               value={sourceLanguage}
               onChange={handleSelectSource}
+              className='bg-[#0e0e0e]'
             >
               <option value='auto'>
                 {updateDetectLanguage
@@ -112,20 +115,21 @@ function App() {
             </select>
           </div>
           <button
-            className='swap-languages icon-button'
+            className='swap-languages icon-button flex items-center border-0 bg-[#0e0e0e] justify-center m-auto text-white cursor-pointer rounded[50%] p-[6px] *:duration-200 active:scale-90'
             id='swapLanguages'
             onClick={swapLanguages}
           >
-            <span className='material-symbols-outlined'>
-              <ArrowLeftRight />
+            <span className='material-symbols-outlined '>
+              <ArrowLeftRight size={16} />
             </span>
           </button>
 
-          <div className='target-language'>
+          <div className='target-language flex-1 max-w-[200px]'>
             <select
               id='targetLanguage'
               value={targetLanguage}
               onChange={handleSelectTarget}
+              className='bg-[#0e0e0e]'
             >
               <option value='en'>Inglés</option>
               <option value='es'>Español</option>
@@ -139,18 +143,21 @@ function App() {
             </select>
           </div>
         </section>
-        <main className='translation-area'>
-          <section className='input-section'>
-            <div className='textarea-container'>
+        <main
+          className='translation-area
+        flex h-[250px] border-t-[1px] border-t-[#e8eaed05]'
+        >
+          <section className='input-section flex-1 flex flex-col border-r-[1px] border-[#e8eaed05]'>
+            <div className='textarea-container flex-1 flex flex-col relative'>
               <textarea
                 id='inputText'
-                placeholder='Escribe o habla'
+                placeholder='Type or speak!'
                 maxLength='5000'
                 value={input}
                 onChange={handleChangeInput}
               ></textarea>
             </div>
-            <footer className='input-controls'>
+            <footer className='h-[40px] input-controls flex justify-between items-center p-[12px] border-t border-b border-[#e8eaed05]'>
               <button
                 className='icon-button mic-button'
                 id='micButton'
@@ -158,21 +165,21 @@ function App() {
                 ref={micButtonRef}
               >
                 <span className='material-symbols-outlined'>
-                  <Mic />
+                  <Mic size={20} />
                 </span>
               </button>
               <p
-                className='length-limit'
+                className='length-limit text-[12px]'
                 id='length-limit'
-                style={{ color: input.length >= 50 ? "red" : "black" }}
+                style={{ color: input.length >= 50 ? "red" : "white" }}
               >
                 <span id='length'>{input.length}</span> / 50
               </p>
             </footer>
           </section>
 
-          <section className='output-section'>
-            <div className='textarea-container'>
+          <section className='output-section flex-1 flex flex-col'>
+            <div className='textarea-container flex-1 flex flex-col relative'>
               <textarea
                 readOnly
                 id='outputText'
@@ -181,16 +188,18 @@ function App() {
                 onChange={(e) => setOutput(e.target.value)}
               ></textarea>
 
-              <footer className='output-controls'>
+              <footer className='h-[40px] input-controls flex justify-between items-center p-[12px] border-t border-b border-[#e8eaed05]'>
                 <button
                   className='icon-button copy-button'
                   id='copyButton'
                   onClick={handleCopyButton}
                 >
                   <span className='material-symbols-outlined'>
-                    <Copy />
+                    <Copy size={20} />
                   </span>
-                  <p id='copyText'>{copyText}</p>
+                  <p id='copyText' className='text-[15px]'>
+                    {copyText}
+                  </p>
                 </button>
 
                 <button
@@ -200,7 +209,7 @@ function App() {
                   ref={speakerBtn}
                 >
                   <span className='material-symbols-outlined'>
-                    <Volume1 />
+                    <Volume1 size={20} />
                   </span>
                 </button>
               </footer>

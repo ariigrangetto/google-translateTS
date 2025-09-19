@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import useUpdateStateContext from "./useUpdateStateContext";
-import useLanguageCode from "./useLanguageCode";
+import useUpdateStateContext from "./useUpdateStateContext.ts";
+import useLanguageCode from "./useLanguageCode.ts";
 
 export default function useSpeakRecognition() {
   const getFullLanguageCode = useLanguageCode();

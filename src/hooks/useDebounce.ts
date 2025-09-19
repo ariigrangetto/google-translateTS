@@ -1,5 +1,5 @@
 import { useCallback, useRef } from "react";
-import { useTranslate } from "./useTranslate";
+import { useTranslate } from "./useTranslate.ts";
 
 export default function useDebounce() {
   const timeoutId = useRef<number>(0);

@@ -1,4 +1,4 @@
-import { DEFAULT_SOURCE_LANGUAGE } from "../constants";
+import { DEFAULT_SOURCE_LANGUAGE } from "../constants.ts";
 import { FULL_LANGUAGES_CODE } from "../types.d";
 
 export default function useLanguageCode() {

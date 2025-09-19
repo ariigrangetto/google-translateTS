@@ -1,8 +1,8 @@
 import { useRef } from "react";
-import useUpdateStateContext from "./useUpdateStateContext";
-import useLanguageCode from "./useLanguageCode";
-import useDetectLanguage from "./useDetectLanguage";
-import { useTranslate } from "./useTranslate";
+import useUpdateStateContext from "./useUpdateStateContext.ts";
+import useLanguageCode from "./useLanguageCode.ts";
+import useDetectLanguage from "./useDetectLanguage.ts";
+import { useTranslate } from "./useTranslate.ts";
 
 export default function useVoiceRecognition() {
   const micButtonRef = useRef(null);

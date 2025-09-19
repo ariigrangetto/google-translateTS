@@ -1,7 +1,7 @@
 import { useCallback } from "react";
-import useUpdateStateContext from "./useUpdateStateContext";
-import useDetectLanguage from "./useDetectLanguage";
-import useGetTranslation from "./useGetTranslation";
+import useUpdateStateContext from "./useUpdateStateContext.ts";
+import useDetectLanguage from "./useDetectLanguage.ts";
+import useGetTranslation from "./useGetTranslation.ts";
 
 export function useTranslate() {
   const {

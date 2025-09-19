@@ -1,6 +1,9 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { createContext, useState } from "react";
-import { DEFAULT_SOURCE_LANGUAGE, DEFAULT_TARGET_LANGUAGE } from "../constants";
+import {
+  DEFAULT_SOURCE_LANGUAGE,
+  DEFAULT_TARGET_LANGUAGE,
+} from "../constants.ts";
 
 type UpdateStateContextType = {
   sourceLanguage: string;
