@@ -1,42 +1,65 @@
-#root {
-  max-width: 1280px;
+.container {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  background: var(--bg-primary);
+  min-height: 100vh;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.header {
+  border-bottom: 1px solid var(--border-primary);
+  padding: 16px 24px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+select {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border-secondary);
+  font-size: 14px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: border-color 0.2s;
+
+  &:hover {
+    border-color: var(--text-secondary);
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  &:focus {
+    outline: none;
+    border-color: var(--google-blue);
+    box-shadow: 0 0 0 2px var(--google-blue);
   }
 }
 
-.card {
-  padding: 2em;
+.icon-button {
+  margin-left: 10px;
 }
 
-.read-the-docs {
-  color: #888;
+#inputText {
+  flex: 1;
+  border: 0;
+  padding: 24px;
+  font: inherit;
+  resize: none;
+  outline: none;
+  font-size: 18px;
+}
+
+#outputText {
+  flex: 1;
+  border: 0;
+  padding: 24px;
+  resize: none;
+  font-size: 18px;
+  overflow-y: auto;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.length-limit {
+  margin-right: 10px;
+}
+
+section {
+  margin-top: 20px;
 }
