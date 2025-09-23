@@ -7,6 +7,7 @@ import useUpdateStateContext from "./hooks/useUpdateStateContext.ts";
 import useSpeakRecognition from "./hooks/useSpeakRecognition.ts";
 import useVoiceRecognition from "./hooks/useVoiceRecognition.ts";
 import useDebounce from "./hooks/useDebounce.ts";
+import type { LanguageKeys } from "./types.d";
 
 function App() {
   const {
@@ -47,7 +48,7 @@ function App() {
     e: React.ChangeEvent<HTMLSelectElement>
   ): void => {
     const newTarget = e.target.value;
-    setTargetLanguage(newTarget);
+    setTargetLanguage(newTarget as LanguageKeys);
     debounceTranslate(input, sourceLanguage, newTarget);
   };
 
@@ -152,7 +153,7 @@ function App() {
               <textarea
                 id='inputText'
                 placeholder='Type or speak!'
-                maxLength='5000'
+                maxLength={5000}
                 value={input}
                 onChange={handleChangeInput}
               ></textarea>

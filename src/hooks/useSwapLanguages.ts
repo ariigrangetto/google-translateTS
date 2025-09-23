@@ -1,3 +1,4 @@
+import type { LanguageKeys } from "../types.d";
 import useDetectLanguage from "./useDetectLanguage.ts";
 import { useTranslate } from "./useTranslate.ts";
 import useUpdateStateContext from "./useUpdateStateContext.ts";
@@ -19,20 +20,20 @@ export default function useSwapLanguages() {
 
   async function swapLanguages(): Promise<void> {
     if (sourceLanguage === "auto") {
-      const detectedLanguage = await detectLanguage(input);
+      const detectedLanguage = (await detectLanguage(input)) as LanguageKeys;
       setSourceLanguage(detectedLanguage);
     }
 
     //magic of swap
     const temporalLanguage = sourceLanguage;
     setSourceLanguage(targetLanguage);
-    setTargetLanguage(temporalLanguage);
+    setTargetLanguage(temporalLanguage as LanguageKeys);
 
     setInput(output);
     setOutput("");
 
     if (input) {
-      translate(input, targetLanguage, sourceLanguage);
+      translate(input, targetLanguage, sourceLanguage as LanguageKeys);
     }
   }
 

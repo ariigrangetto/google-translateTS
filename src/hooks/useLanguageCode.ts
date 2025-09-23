@@ -1,11 +1,14 @@
 import { DEFAULT_SOURCE_LANGUAGE } from "../constants.ts";
-import { FULL_LANGUAGES_CODE } from "../types.d";
+import { FULL_LANGUAGES_CODE, type LanguageKeys } from "../types.d";
+
+type LanguageOrAuto = LanguageKeys | "auto";
 
 export default function useLanguageCode() {
-  function getFullLanguageCode(
-    languageCode: keyof typeof FULL_LANGUAGES_CODE
-  ): FULL_LANGUAGES_CODE {
-    return FULL_LANGUAGES_CODE[languageCode] ?? DEFAULT_SOURCE_LANGUAGE;
+  function getFullLanguageCode(languageCode: LanguageOrAuto): string {
+    if (languageCode === "auto") {
+      return DEFAULT_SOURCE_LANGUAGE;
+    }
+    return FULL_LANGUAGES_CODE[languageCode];
   }
 
   return getFullLanguageCode;

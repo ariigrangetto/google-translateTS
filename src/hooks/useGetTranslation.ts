@@ -2,11 +2,42 @@ import { useRef } from "react";
 import useDetectLanguage from "./useDetectLanguage.ts";
 import useUpdateStateContext from "./useUpdateStateContext.ts";
 
+interface TranslatorMonitor extends EventTarget {
+  addEventListener(
+    type: "downloadprogress",
+    listener: (event: Event) => void
+  ): void;
+}
+
+interface TranslatorResult {
+  translate: (text: string) => Promise<string>;
+}
+
+interface TranslatorOptions {
+  sourceLanguage: string;
+  targetLanguage: string;
+  monitor?: (monitor: TranslatorMonitor) => void;
+}
+
+interface Translator {
+  create: (options: TranslatorOptions) => Promise<TranslatorResult>;
+  availability: (options: {
+    sourceLanguage: string;
+    targetLanguage: string;
+  }) => Promise<"available" | "unavailable">;
+}
+
+declare global {
+  interface Window {
+    Translator: Translator;
+  }
+}
+
 export default function useGetTranslation() {
   const { setOutput } = useUpdateStateContext();
   const detectLanguage = useDetectLanguage();
   const currentTranslatorKey = useRef<string | null>(null);
-  const currentTranslator = useRef(null);
+  const currentTranslator = useRef<TranslatorResult | null>(null);
 
   async function getTranslation(text: string, source: string, target: string) {
     const sourceLanguageDetect =

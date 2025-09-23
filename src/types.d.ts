@@ -9,3 +9,5 @@ export enum FULL_LANGUAGES_CODE {
   ja = "ja-JP",
   zh = "zh-CN",
 }
+
+export type LanguageKeys = keyof typeof FULL_LANGUAGES_CODE;

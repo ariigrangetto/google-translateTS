@@ -3,13 +3,16 @@ import { createContext, useState } from "react";
 import {
   DEFAULT_SOURCE_LANGUAGE,
   DEFAULT_TARGET_LANGUAGE,
+  SUPPORTED_LANGUAGES,
 } from "../constants.ts";
+
+type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
 
 type UpdateStateContextType = {
   sourceLanguage: string;
   setSourceLanguage: (lang: string) => void;
-  targetLanguage: string;
-  setTargetLanguage: (lang: string) => void;
+  targetLanguage: SupportedLanguage;
+  setTargetLanguage: (lang: SupportedLanguage) => void;
   input: string;
   setInput: (value: string) => void;
   output: string;
@@ -28,7 +31,9 @@ export default function UpdateStateProvider({
   children: React.ReactNode;
 }) {
   const [sourceLanguage, setSourceLanguage] = useState(DEFAULT_SOURCE_LANGUAGE);
-  const [targetLanguage, setTargetLanguage] = useState(DEFAULT_TARGET_LANGUAGE);
+  const [targetLanguage, setTargetLanguage] = useState<SupportedLanguage>(
+    DEFAULT_TARGET_LANGUAGE as SupportedLanguage
+  );
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
   const [updateDetectLanguage, setUpdateDetectLanguage] = useState<string>("");

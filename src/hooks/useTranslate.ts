@@ -2,12 +2,14 @@ import { useCallback } from "react";
 import useUpdateStateContext from "./useUpdateStateContext.ts";
 import useDetectLanguage from "./useDetectLanguage.ts";
 import useGetTranslation from "./useGetTranslation.ts";
+import type { LanguageKeys } from "../types.d";
 
 export function useTranslate() {
   const {
     setOutput,
     setUpdateDetectLanguage,
     sourceLanguage,
+    setSourceLanguage,
     targetLanguage,
     input,
   } = useUpdateStateContext();
@@ -16,7 +18,11 @@ export function useTranslate() {
   const getTranslation = useGetTranslation();
 
   const translate = useCallback(
-    async (input: string, source: string, target: string) => {
+    async (
+      input: string,
+      source: LanguageKeys | "auto",
+      target: LanguageKeys
+    ) => {
       if (!input) {
         setOutput("");
         return;
@@ -25,8 +31,9 @@ export function useTranslate() {
       setOutput("Traduciendo...");
 
       if (source === "auto") {
-        const detectedLanguage = await detectLanguage(input);
+        const detectedLanguage = (await detectLanguage(input)) as LanguageKeys;
         updateDetectedLanguage(detectedLanguage);
+        setSourceLanguage(detectedLanguage);
       }
 
       try {
@@ -40,7 +47,7 @@ export function useTranslate() {
     [sourceLanguage, targetLanguage, input]
   );
 
-  function updateDetectedLanguage(lang: string): void {
+  function updateDetectedLanguage(lang: LanguageKeys): void {
     setUpdateDetectLanguage(lang);
   }
 

@@ -11,4 +11,4 @@ export const SUPPORTED_LANGUAGES = [
   "ru",
   "ja",
   "zh",
-];
+] as const;
