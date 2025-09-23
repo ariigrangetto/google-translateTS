@@ -191,14 +191,12 @@ function App() {
 
               <footer className='h-[40px] input-controls flex justify-between items-center p-[12px] border-t border-b border-[#e8eaed05]'>
                 <button
-                  className='icon-button copy-button'
+                  className='icon-button copy-button flex items-center justify-center gap-2'
                   id='copyButton'
                   onClick={handleCopyButton}
                 >
-                  <span className='material-symbols-outlined'>
-                    <Copy size={20} />
-                  </span>
-                  <p id='copyText' className='text-[15px]'>
+                  <Copy size={20} />
+                  <p id='copyText' className='text-[15px] ml-[10px]'>
                     {copyText}
                   </p>
                 </button>
